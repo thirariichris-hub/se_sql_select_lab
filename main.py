@@ -20,7 +20,7 @@ df_name_length = pd.read_sql("""SELECT LENGTH(lastName) AS name_length FROM empl
 
 df_short_title = pd.read_sql("""SELECT SUBSTR(jobTitle, 1, 2) AS short_title FROM employees""", conn)
 
-sum_total_price = pd.read_sql("""SELECT SUM(ROUND(priceEach * quantityOrdered)) FROM orderDetails""", conn)
+sum_total_price = pd.read_sql("""SELECT ROUND(priceEach * quantityOrdered) FROM orderdetails""", conn).sum()[0]
 
 
 df_day_month_year = pd.DataFrame()
